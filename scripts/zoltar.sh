@@ -1,11 +1,12 @@
-!/bin/bash
+#!/bin/bash
 
 ###CHECK TO SEE IF ZOLTAR MODE IS ENGAGED
-ZOLTAR_ALLOWED=$(rostopic echo -n 1 /zoltar_allowed)
-
+z_a_val=$(rostopic echo -n 1 /zoltar_allowed)
+z_array=($z_a_val)
+ZOLTAR_ALLOWED=${z_array[1]}
 ###
 ###IF NO
-if [[ "$ZOLTAR_ALLOWED" = false ]]; then
+if [[ "$ZOLTAR_ALLOWED" = False ]]; then
   echo "Zoltar mode is not allowed. Return after engaging Sport mode and flashing the high beams twice."
 
 ###IF YES
@@ -25,7 +26,7 @@ else
    echo "error: Not a number" >&2; exit 1
   else
     echo $wish > ../zoltar_speed.txt
-    rostopic pub -1 /zoltar_request std_msgs/Float64 $settingRequest
+    rostopic pub -1 /zoltar_request std_msgs/Float64 $wish
   fi
   ###
 

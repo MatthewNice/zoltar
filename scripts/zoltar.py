@@ -202,7 +202,7 @@ class zoltar:
 
 if __name__ == '__main__':
     try:
-        head = middleway()
+        head = zoltar()
         head.loop()
     except Exception as e:
         print(e)

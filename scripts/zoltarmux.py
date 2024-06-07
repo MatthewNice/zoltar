@@ -94,7 +94,7 @@ class vslmux:
             self.mux_set_speed_pub.publish(self.pub_float)
 
     def zoltar_allowed_callback(self,data):
-        self.zoltar_allowed.data = data.data#zoltar_allowed
+        self.zoltar_allowed = data.data #zoltar_allowed
 
     def vsl_good_callback(self, data):
         self.vsl_good = data.data
