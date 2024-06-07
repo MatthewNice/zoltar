@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>zoltar</name>
+  <version>0.1.2</version>
+  <description>The ZOLTAR package</description>
+
+  <maintainer email="matthew.nice@vanderbilt.edu">Matthew Nice</maintainer>
+
+  <license>MIT License</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <depend>rospy</depend>
+  <depend>sensor_msgs</depend>
+  <depend>std_msgs</depend>
+  <depend>roscpp</depend>
+  <export>
+  </export>
+</package>
