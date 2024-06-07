@@ -12,7 +12,7 @@ if [[ "$ZOLTAR_ALLOWED" = False ]]; then
 ###IF YES
 else
   currentZoltar=$(cat ../zoltar_speed.txt)
-  echo "The current Zoltar Speed is: "
+  echo "The current Zoltar Speed in m/s is: "
   echo $currentZoltar
   echo -n "Enter a speed in MPH. What is your wish?"
   read -r wish
@@ -25,8 +25,9 @@ else
   if ! [[ $yournumber =~ $re ]] ; then
    echo "error: Not a number" >&2; exit 1
   else
-    echo $wish > ../zoltar_speed.txt
-    rostopic pub -1 /zoltar_request std_msgs/Float64 $wish
+    var=$(awk -v wish=$wish 'BEGIN { print wish*0.44704 }')
+    echo $var > ../zoltar_speed.txt
+    rostopic pub -1 /zoltar_request std_msgs/Float64 $var
   fi
   ###
 

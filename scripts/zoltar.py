@@ -106,18 +106,21 @@ zoltar_allowed = False
 def doubleClick():
     global highbeams
     now = highbeams
-
     global last
     global zoltar_allowed
     global sport_mode
 
+   # print(now, last)
+
+
     if (now != last) & (now == 0): #the 1 to 0 transition implies the highbeams have been flipped on
         #this is where we track a new flip
         recentflips.append(time.time())
-
+        #print('a flip was added')
     if (len(recentflips) >= 2) & (sport_mode == 1):
         zoltar_allowed = True
-    else:
+        #print('zoltar onnnnn')
+    elif (sport_mode == 0):
         zoltar_allowed = False
         zoltar_request = 0 #resetting the zoltar_request value
 
@@ -151,6 +154,7 @@ class zoltar:
         rospy.Subscriber(eco_mode_topic,Bool,eco_mode_callback)
         rospy.Subscriber(v_pr_topic,Float64,v_pr_callback)
         rospy.Subscriber(zoltar_request_topic,Float64,zoltar_request_callback)
+        rospy.Subscriber(highbeams_topic,Float64,highbeams_callback)
 
         # TODO: subscribe to the offset value (should always be 2m/s in zoltar_allowed)
 
@@ -181,7 +185,7 @@ class zoltar:
                 global zoltar_allowed
                 global zoltar_request
 
-
+               # print(highbeams)
                 doubleClick()
                 zoltar_allowed_pub.publish(zoltar_allowed)
 

@@ -61,8 +61,8 @@
   <node pkg="gps2vsl" type="vsl2setSpeed.py" name="vsl2setSpeed" output="screen" />
   <!-- <node pkg="gps2vsl" type="vslmux.py" name="vslmux" output="screen"> -->
     <!-- remapping subscriber for mux vsl/set_speed becomes vsl/middleway_speed -->
-    <remap from="/vsl/set_speed" to="/vsl/middleway_speed"/>
-  </node>
+  <!--  <remap from="/vsl/set_speed" to="/vsl/middleway_speed"/>
+  </node> -->
   <!-- <node pkg="gps2vsl" type="float2twist.py" name="float2twist" output="screen">
     <remap if="$(eval not vsl_hwil_test)" from="/vsl/twist_out" to="/cmd_vel"/>
   </node> -->
@@ -73,7 +73,9 @@
 <!-- ~~~~~~~~~~~~~~~~~~~~~~~~ -->
 <!-- zoltar nodes -->
 <node pkg="zoltar"  type="zoltar.py" name="zoltar" output="screen" />
-<node pkg="zoltar"  type="zoltarmux.py" name="zoltarmux" output="screen" />
 
+<node pkg="zoltar"  type="zoltarmux.py" name="zoltarmux" output="screen" >
+  <remap from="/vsl/set_speed" to="/vsl/middleway_speed"/>
+</node>
 
 </launch>

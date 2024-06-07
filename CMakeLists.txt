@@ -226,9 +226,9 @@ catkin_install_python(PROGRAMS scripts/zoltarmux.py
 DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 
-catkin_install_python(PROGRAMS scripts/zoltar_interface.py
-DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
-)
+#catkin_install_python(PROGRAMS scripts/zoltar_interface.py
+#DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+#)
 
 
 # message( " @@@@@@@@@@@@@@@@@@@@@@@ " ${PROJECT_SOURCE_DIR})
