@@ -8,7 +8,7 @@ echo " - Installing ROS packages for zoltar..."
 
 LIBPANDA_SRC=$(cat /etc/libpanda.d/libpanda_src_dir)
 LIBPANDA_USER=$(cat /etc/libpanda.d/libpanda_usr)
-LAUNCH_FILE=zoltar_mode.launch
+LAUNCH_FILE=zoltar.launch
 
 source /home/$LIBPANDA_USER/.bashrc
 

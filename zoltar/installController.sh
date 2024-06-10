@@ -1,7 +1,7 @@
 #!/bin/bash
 # Author: Matt Nice,Matt Bunting
 
-LAUNCH_FILE=zoltar_mode.launch
+LAUNCH_FILE=zoltar.launch
 
 echo "----------------------------"
 if [[ $EUID == 0 ]];
