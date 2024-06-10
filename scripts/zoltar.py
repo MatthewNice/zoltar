@@ -109,6 +109,7 @@ def doubleClick():
     global last
     global zoltar_allowed
     global sport_mode
+    # global zoltar_request
 
    # print(now, last)
 
@@ -122,7 +123,7 @@ def doubleClick():
         #print('zoltar onnnnn')
     elif (sport_mode == 0):
         zoltar_allowed = False
-        zoltar_request = 0 #resetting the zoltar_request value
+        # zoltar_request = 0 #resetting the zoltar_request value
 
     #clean up
     recursivePop() #clean up older flips
@@ -189,7 +190,7 @@ class zoltar:
                 doubleClick()
                 zoltar_allowed_pub.publish(zoltar_allowed)
 
-                if zoltar_request == 0:
+                if zoltar_allowed == 0:
                     v_zoltar_user = velocity #when there is no zoltar request yet
                 else:
                     v_zoltar_user = zoltar_request
